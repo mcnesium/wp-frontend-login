@@ -98,6 +98,10 @@ function cubiq_registration_redirect ($errors, $sanitized_user_login, $user_emai
 
 			wp_redirect( home_url('/login/') . '?action=register&failed=invalid_username' );
 
+		} else if ( isset( $errors->errors['invalid_email'] ) ) {
+
+			wp_redirect( home_url('/login/') . '?action=register&failed=invalid_email' );
+
 		} else if ( isset( $errors->errors['empty_username'] ) || isset( $errors->errors['empty_email'] ) ) {
 
 			wp_redirect( home_url('/login/') . '?action=register&failed=empty' );
